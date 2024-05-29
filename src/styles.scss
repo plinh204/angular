@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.banner {
+    background-image: url(./assets/img/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.nav {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.custom-menu-item {
+    padding: 12px 24px;
+    border-bottom-width: 3px;
+    border-bottom: solid 3px white ;
+    color: #4B5563;
+    font-weight: 400;
+    position: relative;
+}
+
+.custom-menu-item:hover {
+    color: #2474E5;
+    border-bottom-color: #2474E5;
+}
+.custom-menu-item span{
+    position: absolute;
+    top: 0;
+    right: 3px;
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 3px 8px;
+    font-size: 9px;
+    font-weight: 500;
+    border-radius: 9999px; 
+    line-height: 1; 
+}
+.inputBox label {
+  pointer-events: none;
+}
+
+
+.inputBox input:valid + label,
+.inputBox input:focus + label {
+    top: -15px;
+    left: 0px;
+    color: rgb(209 213 219);
+    font-size: 12px;
+
+}
+
+@media only screen and (max-width: 940px) {
+    .form{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .form button{
+        width: 100%;
+    }
+}
