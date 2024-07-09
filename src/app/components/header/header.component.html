@@ -1,36 +1,36 @@
-<header class="bg-[#243444]">
+<header class="bg-white">
   <div
     class="mx-auto w-full flex h-20 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8"
   >
     <a class="block text-teal-600">
-      <span class="sr-only">Home</span>
-      <img src="../../../assets/img/anh7.jpg" class="h-12 rounded" />
+      <span class="sr-only ">Home</span>
+      <img src="https://logos-download.com/wp-content/uploads/2016/08/Agoda_logo.png" class="h-12 rounded" />
     </a>
 
     <div class="flex flex-1 items-center justify-end md:justify-between">
       <nav aria-label="Global" class="hidden md:block">
         <ul class="flex items-center gap-6 text-sm font-medium">
           <li>
-            <a class="text-white hover:text-gray-500/75" routerLink="/">
-              Home
+            <a class="text-cyan-700	 hover:text-gray-500/75" routerLink="/">
+              TRANG CHỦ
+            </a>
+          </li>
+
+          <li *ngIf="userStateService.isAdmin()">
+            <a class="text-cyan-700 hover:text-gray-500/75" routerLink="/admin">
+              ADMIN
             </a>
           </li>
 
           <li>
-            <a class="text-white hover:text-gray-500/75" routerLink="/admin">
-              Shop
+            <a class="text-cyan-700 hover:text-gray-500/75" routerLink="/about">
+              CHI TIẾT SP
             </a>
           </li>
 
           <li>
-            <a class="text-white hover:text-gray-500/75" routerLink="/about">
-              About
-            </a>
-          </li>
-
-          <li>
-            <a class="text-white hover:text-gray-500/75" routerLink="/projects">
-              Projects
+            <a class="text-cyan-700 hover:text-gray-500/75" routerLink="/projects">
+              PROFIRE
             </a>
           </li>
         </ul>
@@ -38,14 +38,14 @@
       <div class="flex items-center gap-4">
         <div class="sm:flex sm:gap-4">
           <a
-            class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+            class="block rounded-md bg-sky-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
             routerLink="/login"
           >
             Login
           </a>
 
           <a
-            class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
+            class="hidden rounded-md bg-sky-600 px-5 py-2.5 text-sm font-medium text-white transition hover:text-teal-600/75 sm:block"
             routerLink="/register"
           >
             Register

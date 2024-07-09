@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { Auth } from '../../../interfaces/Auth';
-import { AuthService } from '../../../services/auth.service';
+import { User } from '../../../interfaces/Auth';
+import { UserService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,15 +13,15 @@ import { AuthService } from '../../../services/auth.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
-  auth: Auth = {} as Auth;
-  authForm: FormGroup = {} as FormGroup;
+  user: User = {} as User;
+  userForm: FormGroup = {} as FormGroup;
   loginError: string | null = null; 
   constructor(
-    private authService: AuthService,
+    private userService: UserService,
     private router: Router,
     private fb: FormBuilder
   ) {
-    this.authForm = this.fb.group({
+    this.userForm = this.fb.group({
       email: ['', [Validators.required, Validators.email ]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
   
   getErrorMessage(controlName: string): string {
-    const control = this.authForm.get(controlName);
+    const control = this.userForm.get(controlName);
     if (control?.errors?.['required']) {
       return 'Bắt buộc phải nhập';
     } else if (control?.errors?.['minlength']) {
@@ -40,12 +40,14 @@ export class LoginComponent implements OnInit {
     return '';
   }
   handleSubmit(){
-    console.log(this.authForm.valid);
-    if (this.authForm.valid) {
-      console.log(this.authForm.value);
-      this.authService.login(this.authForm.value).subscribe({next: (data) =>{
+    console.log(this.userForm.valid);
+    if (this.userForm.valid) {
+      console.log(this.userForm.value);
+      this.userService.login(this.userForm.value).subscribe({next: (data) =>{
         console.log('Register successfully!', data);
         localStorage.setItem('token', data.token);
+        localStorage.setItem('token', data.user.role);
+
         alert("Đăng nhập thành công!")
         this.router.navigate([''])
       },
